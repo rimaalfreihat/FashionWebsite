@@ -1,0 +1,228 @@
+<html>
+    <header>
+        <title>Fashion & Style</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Old+Standard+TT">
+        <style>
+            button{
+                width: 100px;
+                height: 40px;
+                border-color: black;
+                background-color: white;
+                font-size: 13pt;
+                padding: 10px;
+                margin-left: 150px;
+            }
+            button:hover{
+                background-color: black;
+                color: white;
+            }
+            input{
+                width:300px;
+                height: 40px;
+                font-size: 12pt;
+                color: hotpink;
+            }
+            textarea{
+                width: 300px;
+                height: 100px;
+                resize: none;
+                font-size: 12pt;
+                color: hotpink;
+            }
+            td{
+                padding: 6px;
+            }
+        </style>
+        <script type="text/javascript">
+            function check_msg() {
+                if(document.getElementById("name1").value=="") {
+                            alert("Your name is missing!");
+                            return false;
+                }
+                if(document.getElementById("email1").value=="")
+                    {
+                        alert("Your email is missing!");
+                        return false;
+                    }
+                var email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                
+                if(!email.test(document.getElementById("email1").value)){
+                        alert("Your email is incorrect!");
+                        return false;
+                    } 
+                if(document.getElementById("message").value=="")
+                    {
+                        alert("Your message is missing!");
+                        return false;
+                    }
+                else{
+                    return true;
+                }
+            }
+            function check_unsubs() {
+                if(document.getElementById("name2").value=="") {
+                            alert("Your name is missing!");
+                            return false;
+                }
+                if(document.getElementById("email2").value=="")
+                    {
+                        alert("Your email is missing!");
+                        return false;
+                    }
+                var email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                
+                    if(!email.test(document.getElementById("email3").value)){
+                        alert("Your email is incorrect!");
+                        return false;
+                    } 
+                else{
+                    return true;
+                }
+            }
+        
+        </script>
+    </header>
+    <body>    
+    <div class="container">
+        <div class="header">
+		  <h1><img src="Header/left.jpg" height=20 width=auto> Style & Fashion 
+            <img src="Header/right.jpg" height=20 width=auto></h1>
+        </div>
+
+    <div class="navigation">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Season</a>
+                    <div class="dropdown-content">
+                        <a href="SS.html" id="opt">Spring/Summer</a>
+                        <a href="FW.html" id="opt">Fall/Winter</a>
+                    </div>
+            </li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Occasion</a>
+                    <div class="dropdown-content">
+                        <a href="Casual.html" id="opt">Casual</a>
+                        <a href="Work.html" id="opt">Work</a>
+                        <a href="Special.html" id="opt">Special Occasions</a>
+                    </div>
+            </li>
+            <li><a href="Subscribe.html">Subscribe</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </div> 
+    <div id="content-container">
+		<div id="content">
+            <h2>Contact Us</h2>
+            <br/>
+            <h3>Send a Message</h3>
+            <p>Kindly enter your details below to send us a message. Don't forget to write your email so we can reply.</p>
+            <br/>
+            <form method="post" id="my_custom_form3">
+            <table>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name1" id="name1" placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td> <label>Email:</label></td>
+                    <td><input type="email" name="email1" id="email1" placeholder="abcde@example.com"></td>
+                </tr>
+                <tr>
+                    <td><label>Message:</label></td>
+                    <td><textarea id="message" name="message" placeholder="Type your message"></textarea></td>
+                </tr>
+                </table>
+            <button type="submit" style="margin-left: 185px;" onclick="check_msg()">Submit</button>
+            </form>
+            
+            
+            
+            <br/><br/>
+            
+            
+            <h3>Unsubscribe</h3>
+            <p>No longer interested? You can subscribe at any time. Enter your details below to unsubscribe.</p>
+            <br/>
+            <form method="post" id="my_custom_form4">
+            <table>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name2" id="name2" placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td> <label>Email:</label></td>
+                    <td><input type="email" name="email2" id="email2" placeholder="abcde@example.com"></td>
+                </tr>
+            </table>
+            <button type="submit" style="margin-left: 165px;" onclick="check_unsubs()">Submit</button>
+            </form>
+            <br/>
+        </div>
+        
+        <script type="text/javascript">
+
+        // Event listener when form is submitted
+        $('body').on('submit', '#my_custom_form3', function(){
+
+            var form = this;
+            // Params that'll be sent to PHP script
+            var params = {
+                name: $(form).find('[name="name1"]').val(),
+                email: $(form).find('[name="email1"]').val(),
+                message: $(form).find('[name="message"]').val()
+            };
+
+            // Send a post request to your URL
+            $.post('message.php', params, function(result) {
+                alert("Successful!");
+            });
+            
+        });
+            
+            
+            $('body').on('submit', '#my_custom_form4', function(){
+
+            var form = this;
+            // Params that'll be sent to PHP script
+            var params = {
+                name: $(form).find('[name="name2"]').val(),
+                email: $(form).find('[name="email2"]').val()
+            };
+
+            // Send a post request to your URL
+            $.post('unsubs.php', params, function(result) {  
+                alert("Successful!");
+            });
+            
+        });
+            
+            
+
+        </script>
+        
+        <div class="aside">
+            <h3>Did you know?</h3>
+            <br/>
+            <p>Your feedback is valuable to us. We respond to messages and requests within 24 hrs and appreciate your time to contact us.</p>
+            <br/>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="float:left;"> Fashion & Style &copy 2018</p>
+        <ul id="links">
+				<li><a href="http://www.facebook.com"><i class="fa fa-facebook-f" id="icons"></i></a></li>
+				<li><a href="http://www.twitter.com/"><i class="fa fa-twitter" id="icons"></i></a></li>
+				<li><a href="http://www.linkedin.com/"><i class="fa fa-linkedin" id="icons"></i></a></li>
+				<li><a href="http://www.pinterest.com/"><i class="fa fa-pinterest"id="icons"></i></a></li>
+				<li><a href="https://plus.google.com"><i class="fa fa-google-plus" id="icons"></i></a></li>
+        </ul>
+    </div>
+        
+    </div>
+    </body>
+</html>

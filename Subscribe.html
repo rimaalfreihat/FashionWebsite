@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Fashion & Style</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Old+Standard+TT">
+        <style>
+            button{
+                width: 100px;
+                height: 40px;
+                border-color: black;
+                background-color: white;
+                font-size: 13pt;
+                padding: 10px;
+                margin-left: 150px;
+            }
+            button:hover{
+                background-color: black;
+                color: white;
+            }
+            input{
+                width:300px;
+                height: 40px;
+                font-size: 12pt;
+                color: hotpink;
+            }
+            td{
+                padding: 6px;
+            }
+        </style>
+        <script type="text/javascript">
+            function check_subs() {
+                var email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if(document.getElementById("name").value=="") {
+                            alert("Your name is missing!");
+                            return false;
+                }
+                        if(document.getElementById("email").value=="")
+                        {
+                            alert("Your email is missing!");
+                        return false;
+                        }
+                        if(!email.test(document.getElementById("email").value)){
+                            alert("Your email is incorrect!");
+                            return false;
+                        }  
+            }
+        </script>
+    </header>
+    <body>    
+    <div class="container">
+        <div class="header">
+		  <h1><img src="Header/left.jpg" height=20 width=auto> Style & Fashion 
+            <img src="Header/right.jpg" height=20 width=auto></h1>
+        </div>
+
+    <div class="navigation">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Season</a>
+                    <div class="dropdown-content">
+                        <a href="SS.html" id="opt">Spring/Summer</a>
+                        <a href="FW.html" id="opt">Fall/Winter</a>
+                    </div>
+            </li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Occasion</a>
+                    <div class="dropdown-content">
+                        <a href="Casual.html" id="opt">Casual</a>
+                        <a href="Work.html" id="opt">Work</a>
+                        <a href="Special.html" id="opt">Special Occasions</a>
+                    </div>
+            </li>
+            <li><a href="Subscribe.html">Subscribe</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </div> 
+    <div id="content-container">
+		<div id="content">
+            <h2>Subscribe</h2>
+            <br/>
+            <h4>Thank you for your interest.</h4>
+            <p>In order to subscribe to our weekly newsletter, kindly enter your email below.</p>
+            <br/>
+            <form method="post" id="my_custom_form2">
+            <table style="float:left;">
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name" id="name" placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td> <label>Email:</label></td>
+                    <td><input type="email" required name="email" id="email" placeholder="abcde@example.com"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" style="margin-left: 100px;" onclick="check_subs()" name="submit">Submit</button></td>
+                </tr>
+            </table>
+            </form>
+            <img src="" id="thanks" width=200 style="padding-left: 5em;"/>
+            
+        </div>
+        <script type="text/javascript">
+
+        // Event listener when form is submitted
+        $('body').on('submit', '#my_custom_form2', function(){
+
+            var form = this;
+            // Params that'll be sent to PHP script
+            var params = {
+                name: $(form).find('[name="name"]').val(),
+                email: $(form).find('[name="email"]').val()
+            };
+
+            // Send a post request to your URL
+            $.post('subs.php', params, function(result) {    
+            });
+            alert("Successful!");
+            document.getElementById("thanks").src="thanks.gif";
+        });
+            
+            
+
+        </script>
+        
+        <div class="aside">
+            <h3>Did you know?</h3>
+            <br/>
+            <p>New trends come out every day, so it is hard to  stay updated on your own. Subsbscribe and get your weekly dose of the latest fashion trends across the globe!</p>
+        </div>
+    </div>
+    <div class="footer" style="margin-top: 115px;">
+        <p style="float:left;"> Fashion & Style &copy 2018</p>
+        <ul id="links">
+				<li><a href="http://www.facebook.com"><i class="fa fa-facebook-f" id="icons"></i></a></li>
+				<li><a href="http://www.twitter.com/"><i class="fa fa-twitter" id="icons"></i></a></li>
+				<li><a href="http://www.linkedin.com/"><i class="fa fa-linkedin" id="icons"></i></a></li>
+				<li><a href="http://www.pinterest.com/"><i class="fa fa-pinterest"id="icons"></i></a></li>
+				<li><a href="https://plus.google.com"><i class="fa fa-google-plus" id="icons"></i></a></li>
+        </ul>
+    </div>
+        
+    </div>
+    </body>
+</html>

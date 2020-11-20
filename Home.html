@@ -1,0 +1,137 @@
+<html>
+    <header>
+
+        <title>Fashion & Style</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Old+Standard+TT">
+
+        <style>
+            button{
+                width: 100px;
+                height: 40px;
+                border-color: black;
+                background-color: white;
+                font-size: 13pt;
+                padding: 10px;
+            }
+            button:hover{
+                background-color: hotpink;
+                border-color: hotpink;
+                color: white;
+            }
+        </style>
+    </header>
+
+
+    <body>
+    <div class="container">
+        <div class="header">
+		  <h1><img src="Header/left.jpg" height=20 width=auto> Style & Fashion
+            <img src="Header/right.jpg" height=20 width=auto></h1>
+        </div>
+
+    <div class="navigation">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Season</a>
+                    <div class="dropdown-content">
+                        <a href="SS.html" id="opt">Spring/Summer</a>
+                        <a href="FW.html" id="opt">Fall/Winter</a>
+                    </div>
+            </li>
+            <li class="dropdown">
+                <a class="dropbtn">Outfits by Occasion</a>
+                    <div class="dropdown-content">
+                        <a href="Casual.html" id="opt">Casual</a>
+                        <a href="Work.html" id="opt">Work</a>
+                        <a href="Special.html" id="opt">Special Occasions</a>
+                    </div>
+            </li>
+            <li><a href="Subscribe.html">Subscribe</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+	<div id="content-container">
+		<div id="content">
+            <h2>
+				Welcome to our closet!
+			</h2>
+            <br/>
+            <h4>
+                Make sure to check out the outfits in the links above, and don't forget to vote for your favorite outfit. <br/>Fashion makes a difference.<br/>Start now.
+            </h4>
+            <br/>
+			<h2 style="text-align: center;">
+				VOTE: Which one is your favorite?
+			</h2>
+            <form method="post" id="my_custom_form">
+            <div id="vote">
+                <div id="voteopt">
+                    <img src="Seasons/Fall:Winter/1.jpg" width=auto height=300px name="one">
+                    <br/>
+                    <input type="radio" name="vote" value="1" default checked>
+                </div>
+                <div id="voteopt">
+                    <img src="Seasons/Fall:Winter/12.jpg" width=auto height=300px name="two">
+                    <br/>
+                    <input type="radio" name="vote" value="2">
+                </div>
+                <div id="voteopt">
+                    <img src="Seasons/Fall:Winter/14.jpg"  width=auto height=300px name="three">
+                    <br/>
+                    <input type="radio" name="vote" value="3">
+                </div>
+            <br/>
+                <button type="submit" name="submit">Vote!</button>
+            </div>
+
+            </form>
+            <br/>
+		</div>
+        <div class="aside">
+            <h3 style="text-align: center;">Outfit of the Week</h3>
+            <br/>
+            <img src="Seasons/Fall:Winter/7.jpg" width=100% height=auto />
+            <br/><br/>
+            <p>Stay tuned next week for the latest outfits!</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="float:left;"> Fashion & Style &copy 2018</p>
+        <ul id="links">
+				<li><a href="http://www.facebook.com"><i class="fa fa-facebook-f" id="icons"></i></a></li>
+				<li><a href="http://www.twitter.com/"><i class="fa fa-twitter" id="icons"></i></a></li>
+				<li><a href="http://www.linkedin.com/"><i class="fa fa-linkedin" id="icons"></i></a></li>
+				<li><a href="http://www.pinterest.com/"><i class="fa fa-pinterest"id="icons"></i></a></li>
+				<li><a href="https://plus.google.com"><i class="fa fa-google-plus" id="icons"></i></a></li>
+        </ul>
+    </div>
+
+    </div>
+    <script type="text/javascript">
+
+        // Event listener when form is submitted
+        $('body').on('submit', '#my_custom_form', function(){
+
+            // Current form, which is submitted
+            var form = this;
+            // Params that'll be sent to PHP script
+            var params = {
+                vote: $(form).find('[name="vote"]:checked').val()
+            };
+
+            // Send a post request to your URL
+            $.post('vote.php', params, function(result) {    
+            });
+            alert("Your vote was submitted!");
+        });
+
+    </script>
+
+
+</body>
+</html>
